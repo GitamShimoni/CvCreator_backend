@@ -5,6 +5,7 @@ require("dotenv").config();
 
 exports.fetchInfo = async (req, res) => {
   try {
+    console.log("Hello this is a log");
     const getInfo = await info.find({ _id: req.body._id });
     return res.status(200).json(getInfo);
   } catch (err) {
@@ -15,6 +16,7 @@ exports.getCvsByToken = async (req, res) => {
   try {
     const realId = jwt.verify(req.headers.token, process.env.SECRET);
     const user = await User.findOne({ _id: realId.id }).populate("info");
+    // console.log(user, "This is the user");
     const cvsArr = user.info;
 
     if (!user) {
@@ -28,10 +30,17 @@ exports.getCvsByToken = async (req, res) => {
 };
 exports.CreateInfo = async (req, res) => {
   try {
+    // console.log(req.body.id, "THIS IS THE ID");
     const newInfo = await info.create(req.body);
-    const updateUser = await User.findByIdAndUpdate(req.body.id, {
-      $push: { info: { _id: newInfo._id } },
-    });
+    // console.log(newInfo, "THIS IS THE NEW INFO");
+    const updateUser = await User.findByIdAndUpdate(
+      req.body.id,
+      {
+        $push: { info: { _id: newInfo._id } },
+      },
+      { new: true }
+    );
+    // console.log(updateUser, "This is the updated user");
     return res.status(200).json(updateUser);
   } catch (err) {
     res.status(500).json(err.message);
