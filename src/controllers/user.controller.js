@@ -2,7 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const saltRounds = 10;
-const { ModuleNode } = require("vite");
+// const { ModuleNode } = require("vite");
 
 const getUser = async (req, res) => {
   try {
