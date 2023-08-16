@@ -11,7 +11,7 @@ require("dotenv").config();
 
 const { mongooseInit } = require("./src/DB/mongooseInit");
 
-app.use(cors(), express.json(), helmet(), cookieParser());
+app.use(cors, express.json(), helmet(), cookieParser());
 
 app.use("/unauth", unauthenticatedRoutes);
 app.use("/", authenticatedRoutes);
