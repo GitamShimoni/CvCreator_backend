@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
 const login = async (req, res) => {
+  console.log("HEYYY");
   const { username, password } = req.body;
   const existUser = await User.findOne({ username });
   if (!existUser) {
@@ -26,6 +27,7 @@ const login = async (req, res) => {
 
 const register = async (req, res) => {
   const { username, password, email, fullname, birthdate } = req.body;
+  console.log("Got into register");
   try {
     const registerExists = await User.findOne({ username: req.body.username });
     if (registerExists) {
