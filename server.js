@@ -15,6 +15,9 @@ app.use(cors(), express.json()); // Fix here
 
 app.use("/unauth", unauthenticatedRoutes);
 app.use("/", authenticatedRoutes);
+app.get('/pinging', (req, res) => {
+  res.send('Live and stable');
+});
 
 mongooseInit();
 app.listen(5000, () => {

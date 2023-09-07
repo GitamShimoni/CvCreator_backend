@@ -3,6 +3,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
+const pinging = async (req, res) => {
+  return res.status(200).json({message: "Pinging accepted and live."})
+}
+
 const login = async (req, res) => {
   console.log("HEYYY");
   const { username, password } = req.body;
@@ -48,4 +52,4 @@ const register = async (req, res) => {
   //   console.log(newUser);
 };
 
-module.exports = { login, register };
+module.exports = { pinging, login, register };
