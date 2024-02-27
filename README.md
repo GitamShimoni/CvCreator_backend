@@ -3,6 +3,8 @@ The CvCreator_backend repository hosts the backend component of the CvCreator pr
 
 # Frontend Side - https://github.com/GitamShimoni/CvCreator_frontend
 
+![308116089-65be04e4-e889-4d57-b6e5-7fd0bae30a60](https://github.com/GitamShimoni/CvCreator_backend/assets/11949650/65c76d39-0ca4-4a96-9678-a275bc61c8b4)
+
 ==========================================================================
 
 Key Features:
