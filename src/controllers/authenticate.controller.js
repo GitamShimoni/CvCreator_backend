@@ -3,9 +3,16 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
+// const pinging = async (req, res) => {
+//   return res.status(200).json({message: "Pinging accepted and live."})
+// }
 const pinging = async (req, res) => {
-  return res.status(200).json({message: "Pinging accepted and live."})
-}
+  try {
+    return res.status(200).json("pong");
+  } catch {
+    res.status(500).message("Couldn't pong.");
+  }
+};
 
 const login = async (req, res) => {
   console.log("HEYYY");
